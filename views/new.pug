@@ -1,0 +1,12 @@
+doctype html
+html
+head
+    title Nueva Publicación
+body
+    h1 Crear Nueva Publicación
+    form(action="/new", method="POST")
+    input(type="text" name="title" placeholder="Título")
+    textarea(name="content" placeholder="Contenido")
+    input(type="text" name="author" placeholder="Autor")
+    input(type="text" name="category" placeholder="Categoría")
+    button(type="submit") Publicar
