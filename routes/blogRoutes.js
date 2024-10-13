@@ -39,5 +39,13 @@ router.post('/login', BlogController.loginUser);
   // Ruta para Búsqueda
 router.get('/search', BlogController.searchPosts);
 
+  // ruta POST para enviar el comentario
+router.post('/comment/:id', BlogController.addComment);
+
+// Ruta para mostrar el formulario de comentario
+router.get('/comment/:id', (req, res) => {
+  const postId = req.params.id;
+  res.render('comment', { postId });
+});
 
 module.exports = router;

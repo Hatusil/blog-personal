@@ -1,0 +1,13 @@
+doctype html
+html
+    head
+        title Comentar Publicación
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+    body
+        .container
+        h1.text-center Comentar en la publicación #{postId}
+        form(action=`/comment/${postId}`, method="POST")
+            .form-group
+            label(for="comment") Comentario
+            textarea.form-control(name="comment" required)
+            button.btn.btn-primary(type="submit") Enviar comentario
