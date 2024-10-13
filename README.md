@@ -3,7 +3,7 @@
 Este proyecto es una aplicación de blog desarrollada con Node.js y Express. Permite a los usuarios registrarse, iniciar sesión, crear, editar y eliminar publicaciones, comentar en publicaciones y buscar publicaciones por título o categoría.
 
 ## Estructura del Proyecto
-
+```
 blog-personal/
 │
 ├── app.js                  # Archivo principal que inicia el servidor
@@ -27,7 +27,7 @@ blog-personal/
 │   ├── posts.json         # Almacena las publicaciones del blog
 │   └── users.json         # Almacena los datos de los usuarios
 └── README.md               # Documentación del proyecto
-
+```
 # Documentación del proyecto
 
 ## Funcionalidades
