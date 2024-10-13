@@ -19,7 +19,7 @@ blog-personal/
 │   ├── register.pug        # Formulario de registro de usuarios
 │   └── login.pug           # Formulario de inicio de sesión
 ├── public/                 # Archivos estáticos (CSS, JS, imágenes)
-│   ├── styles/              
+│   ├── styles/
 │   │   └── styles.css
 │   ├── JS/                  # (opcional) Carpeta para archivos JS
 │   └── imágenes/            # (opcional) Carpeta para imágenes

@@ -9,6 +9,7 @@ Comentarios en publicaciones.
 Categorías para organizar publicaciones.
 Búsqueda de publicaciones.
 Uso de una base de datos JSON para almacenar publicaciones, usuarios y comentarios.
+
 Objetivos Específicos:
 
 Desarrollar una aplicación web utilizando Node.js y Express.
