@@ -1,19 +1,37 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-}
-
-h1 {
-    color: #333;
-}
-
-form {
-    margin-bottom: 20px;
-}
-
-input, textarea {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    width: 300px;
-}
+    background-color: #f8f9fa; /* Color de fondo suave */
+    }
+    
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-group label {
+        font-weight: bold;
+    }
+    
+    button {
+        margin-top: 10px;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .list-group-item {
+        margin-bottom: 10px;
+    }
+    
