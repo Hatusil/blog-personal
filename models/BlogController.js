@@ -6,7 +6,7 @@ const usersPath = path.join(__dirname, '../data/users.json');
 class BlogController {
 
   // Obtener todas las publicaciones
-async getPosts(req, res) {
+static async getPosts(req, res) {
   const posts = await fs.readFile(dataPath, 'utf8').then(data => JSON.parse(data));
   res.render('index', { posts });
 }
@@ -17,7 +17,7 @@ static newPostForm(req, res) {
 }
 
   // Crear una nueva publicación
-  async createPost(req, res) {
+  static async createPost(req, res) {
     const posts = await fs.readFile(dataPath, 'utf8').then(data => JSON.parse(data));
     const { title, content, author, category } = req.body;
   
@@ -36,14 +36,14 @@ static newPostForm(req, res) {
   }
 
   // Formulario para editar publicación
-async editPostForm(req, res) {
+static async editPostForm(req, res) {
   const posts = await fs.readFile(dataPath, 'utf8').then(data => JSON.parse(data));
   const post = posts.find(p => p.id == req.params.id);
   res.render('edit', { post });
 }
 
   // Actualizar publicación
-async updatePost(req, res) {
+static async updatePost(req, res) {
   const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
     const post = posts.find(p => p.id == req.params.id);
     post.title = req.body.title;
@@ -53,7 +53,7 @@ async updatePost(req, res) {
 }
 
   // Eliminar publicación
-async deletePost(req, res) {
+static async deletePost(req, res) {
   const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
     posts = posts.filter(p => p.id != req.params.id);
     await fs.writeFile(dataPath, JSON.stringify(posts));
@@ -61,7 +61,7 @@ async deletePost(req, res) {
 }
 
   // Agregar un comentario
-async addComment(req, res) {
+static async addComment(req, res) {
   const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
     const post = posts.find(p => p.id == req.params.id);
     const newComment = { text: req.body.comment };
@@ -72,7 +72,7 @@ async addComment(req, res) {
 
 
 // Registrar un nuevo usuario
-async registerUser(req, res) {
+static async registerUser(req, res) {
   const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
   const { username, password } = req.body;
   console.log("Datos recibidos:", username, password);
@@ -92,7 +92,7 @@ async registerUser(req, res) {
 }
 
 // Iniciar sesión
-async loginUser(req, res) {
+static async loginUser(req, res) {
   const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
   const { username, password } = req.body;
 
@@ -107,7 +107,7 @@ async loginUser(req, res) {
 }
 
   // buscar publicaciones por título o categoría
-async searchPosts(req, res) {
+static async searchPosts(req, res) {
   const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
   const { query } = req.query;
 
