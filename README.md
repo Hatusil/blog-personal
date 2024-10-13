@@ -6,7 +6,7 @@ Desarrollar un sistema de blog que almacene información relacionada con publica
 
 
 ## Estructura del Proyecto
-
+```
 blog-personal/
 │
 ├── app.js                  # Archivo principal que inicia el servidor
@@ -31,7 +31,7 @@ blog-personal/
 │   ├── posts.json          # Almacena las publicaciones del blog
 │   └── users.json          # Almacena los datos de los usuarios
 └── README.md               # Documentación del proyecto
-
+```
 # Documentación del proyecto
 
 ## Funcionalidades
