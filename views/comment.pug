@@ -9,5 +9,6 @@ html
         form(action=`/comment/${postId}`, method="POST")
             .form-group
             label(for="comment") Comentario
-            textarea.form-control(name="comment" required)
+            textarea.form-control(name="comment", required)
             button.btn.btn-primary(type="submit") Enviar comentario
+        a.btn.btn-secondary(href='/') Volver a la lista de publicaciones

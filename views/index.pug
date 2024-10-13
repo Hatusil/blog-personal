@@ -13,6 +13,6 @@ html
         ul.list-group.mt-4
             each post in posts
                 li.list-group-item
+                    h5 #{post.title} - #{post.author}
                     a(href=`/edit/${post.id}`) Editar
-                    | #{post.title} - #{post.author}
                     a.btn.btn-sm.btn-info.float-right(href=`/comment/${post.id}`) Comentar
