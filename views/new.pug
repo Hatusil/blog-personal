@@ -1,15 +1,22 @@
 doctype html
 html
-head
-    title Nueva Publicación
-    link(rel="stylesheet", href="/public/styles/styles.css")
-    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
-
-body
-    h1 Crear Nueva Publicación
-    form(action="/new", method="POST")
-    input(type="text" name="title" placeholder="Título")
-    textarea(name="content" placeholder="Contenido")
-    input(type="text" name="author" placeholder="Autor")
-    input(type="text" name="category" placeholder="Categoría")
-    button(type="submit") Publicar
+    head
+        title Crear Nueva Publicación
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+    body
+        .container
+        h1.text-center Crear Nueva Publicación
+        form(action="/new", method="POST")
+            .form-group
+            label(for="title") Título
+            input.form-control(type="text", name="title", required)
+            .form-group
+            label(for="content") Contenido
+            textarea.form-control(name="content", required)
+            .form-group
+            label(for="author") Autor
+            input.form-control(type="text", name="author", required)
+            .form-group
+            label(for="category") Categoría
+            input.form-control(type="text", name="category", required)
+            button.btn.btn-success(type="submit") Publicar

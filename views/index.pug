@@ -2,16 +2,17 @@ doctype html
 html
     head
         title Blog Personal
-        link(rel="stylesheet", href="/public/styles/styles.css")
-        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
     body
-        h1 Bienvenido a mi Blog
-        a(href="/new") Crear nueva publicación
-        a(href="/register") Registrarse
-        a(href="/login") Iniciar sesión
-        ul
+        .container
+            h1.text-center Bienvenido a mi Blog
+        .d-flex.justify-content-between
+            a.btn.btn-primary(href="/new") Crear nueva publicación
+            a.btn.btn-secondary(href="/register") Registrarse
+            a.btn.btn-info(href="/login") Iniciar sesión
+        ul.list-group.mt-4
             each post in posts
-                li
+                li.list-group-item
                     a(href=`/edit/${post.id}`) Editar
                     | #{post.title} - #{post.author}
-                    | a(href=`/comment/${post.id}`) Comentar
+                    a.btn.btn-sm.btn-info.float-right(href=`/comment/${post.id}`) Comentar

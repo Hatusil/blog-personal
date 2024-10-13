@@ -2,13 +2,16 @@ doctype html
 html
     head
         title Registro de Usuario
-        link(rel="stylesheet", href="/public/styles/styles.css")
-        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
-
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
     body
-        h1 Registro
+        .container
+        h1.text-center Registro
         form(action="/register", method="POST")
-            input(type="text" name="username" placeholder="Usuario" required)
-            input(type="password" name="password" placeholder="Contraseña" required)
-            button(type="submit") Registrarse
+            .form-group
+            label(for="username") Usuario
+            input.form-control(type="text", name="username", placeholder="Usuario", required)
+            .form-group
+            label(for="password") Contraseña
+            input.form-control(type="password", name="password", placeholder="Contraseña", required)
+            button.btn.btn-success(type="submit") Registrarse
 
