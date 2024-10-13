@@ -1,11 +1,12 @@
 doctype html
 html
-head
-    title Registro de Usuario
-body
-    h1 Registro
-    form(action="/register", method="POST")
-        input(type="text" name="username" placeholder="Usuario" required)
-        input(type="password" name="password" placeholder="Contraseña" required)
-        button(type="submit") Registrarse
+    head
+        title Registro de Usuario
+        link(rel="stylesheet", href="/public/styles/styles.css")
+    body
+        h1 Registro
+        form(action="/register", method="POST")
+            input(type="text" name="username" placeholder="Usuario" required)
+            input(type="password" name="password" placeholder="Contraseña" required)
+            button(type="submit") Registrarse
 

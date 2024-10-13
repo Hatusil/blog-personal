@@ -11,24 +11,24 @@ blog-personal/
 ├── routes/                 # Rutas de la aplicación
 │   └── blogRoutes.js       # Rutas del blog
 ├── models/                 # Controladores de la lógica de negocio
-│   └── BlogController.js    # Controlador para manejar publicaciones y usuarios
+│   └── BlogController.js   # Controlador para manejar publicaciones y usuarios
 ├── views/                  # Vistas Pug
-│   ├── index.pug          # Página principal que lista publicaciones
-│   ├── new.pug            # Formulario para crear nuevas publicaciones
-│   ├── edit.pug           # Formulario para editar publicaciones
-│   ├── register.pug       # Formulario de registro de usuarios
-│   └── login.pug          # Formulario de inicio de sesión
+│   ├── index.pug           # Página principal que lista publicaciones
+│   ├── new.pug             # Formulario para crear nuevas publicaciones
+│   ├── edit.pug            # Formulario para editar publicaciones
+│   ├── register.pug        # Formulario de registro de usuarios
+│   └── login.pug           # Formulario de inicio de sesión
 ├── public/                 # Archivos estáticos (CSS, JS, imágenes)
-├── data/                   # Archivos JSON para almacenar datos
+│   ├── styles/              
+│   │   └── styles.css
+│   ├── JS/                  # (opcional) Carpeta para archivos JS
+│   └── imágenes/            # (opcional) Carpeta para imágenes
+├── data/
 │   ├── posts.json         # Almacena las publicaciones del blog
 │   └── users.json         # Almacena los datos de los usuarios
 └── README.md               # Documentación del proyecto
 
-
- 
- Documentación del proyecto
-
- 
+# Documentación del proyecto
 
 ## Funcionalidades
 
