@@ -1,15 +1,14 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path');
 const dataPath = path.join(__dirname, '../data/posts.json');
 const usersPath = path.join(__dirname, '../data/users.json');
 
-
 class BlogController {
 
   // Obtener todas las publicaciones
-static getPosts(req, res) {
-    const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-    res.render('index', { posts });
+async getPosts(req, res) {
+  const posts = await fs.readFile(dataPath, 'utf8').then(data => JSON.parse(data));
+  res.render('index', { posts });
 }
 
   // Mostrar formulario para nueva publicación
@@ -18,8 +17,8 @@ static newPostForm(req, res) {
 }
 
   // Crear una nueva publicación
-  static createPost(req, res) {
-    const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+  async createPost(req, res) {
+    const posts = await fs.readFile(dataPath, 'utf8').then(data => JSON.parse(data));
     const { title, content, author, category } = req.body;
   
     const newPost = {
@@ -32,38 +31,38 @@ static newPostForm(req, res) {
     };
   
     posts.push(newPost);
-    fs.writeFileSync(dataPath, JSON.stringify(posts));
+    await fs.writeFile(dataPath, JSON.stringify(posts));
     res.redirect('/');
   }
 
   // Formulario para editar publicación
-static editPostForm(req, res) {
-    const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-    const post = posts.find(p => p.id == req.params.id);
-    res.render('edit', { post });
+async editPostForm(req, res) {
+  const posts = await fs.readFile(dataPath, 'utf8').then(data => JSON.parse(data));
+  const post = posts.find(p => p.id == req.params.id);
+  res.render('edit', { post });
 }
 
   // Actualizar publicación
-static updatePost(req, res) {
-    const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+async updatePost(req, res) {
+  const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
     const post = posts.find(p => p.id == req.params.id);
     post.title = req.body.title;
     post.content = req.body.content;
-    fs.writeFileSync(dataPath, JSON.stringify(posts));
+    await fs.writeFile(dataPath, JSON.stringify(posts));
     res.redirect('/');
 }
 
   // Eliminar publicación
-static deletePost(req, res) {
-    let posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+async deletePost(req, res) {
+  const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
     posts = posts.filter(p => p.id != req.params.id);
-    fs.writeFileSync(dataPath, JSON.stringify(posts));
+    await fs.writeFile(dataPath, JSON.stringify(posts));
     res.redirect('/');
 }
 
   // Agregar un comentario
-static addComment(req, res) {
-    const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+async addComment(req, res) {
+  const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
     const post = posts.find(p => p.id == req.params.id);
     const newComment = { text: req.body.comment };
     post.comments.push(newComment);
@@ -73,8 +72,8 @@ static addComment(req, res) {
 
 
 // Registrar un nuevo usuario
-static registerUser(req, res) {
-  const users = JSON.parse(fs.readFileSync(usersPath, 'utf8'));
+async registerUser(req, res) {
+  const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
   const { username, password } = req.body;
   console.log("Datos recibidos:", username, password);
 
@@ -87,14 +86,14 @@ static registerUser(req, res) {
   // Crear nuevo usuario
   const newUser = { username, password };
   users.push(newUser);
-  fs.writeFileSync(usersPath, JSON.stringify(users));
+  await fs.writeFile(dataPath, JSON.stringify(posts));
    // Enviar respuesta de éxito
   res.send('Usuario registrado con éxito');
 }
 
 // Iniciar sesión
-static loginUser(req, res) {
-  const users = JSON.parse(fs.readFileSync(usersPath, 'utf8'));
+async loginUser(req, res) {
+  const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
   const { username, password } = req.body;
 
   // Verificar si el usuario existe y la contraseña es correcta
@@ -108,7 +107,7 @@ static loginUser(req, res) {
 }
 
   // buscar publicaciones por título o categoría
-static searchPosts(req, res) {
+async searchPosts(req, res) {
   const posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
   const { query } = req.query;
 
