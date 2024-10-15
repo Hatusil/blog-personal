@@ -1,21 +1,20 @@
-doctype html
-extends layout.pug
+extends layout
 
 block content
-    .card.mb-4
-        .card-body
-            h1.text-center Crear Nueva Publicación
-            form(action="/new", method="POST")
-                .form-group
-                label(for="title") Título
-                input.form-control(type="text", name="title", required)
-                .form-group
-                label(for="content") Contenido
-                textarea.form-control(name="content", required)
-                .form-group
-                label(for="author") Autor
-                input.form-control(type="text", name="author", required)
-                .form-group
-                label(for="category") Categoría
-                input.form-control(type="text", name="category", required)
-                button.mt-3.btn.btn-success(type="submit") Publicar
+    .container
+        h1.text-center Crear Nueva Publicación
+        form(action="/new", method="POST")
+        .form-group
+            label(for="title") Título
+            input.form-control(type="text", name="title", placeholder="Escribe el título", required)
+        .form-group
+            label(for="content") Contenido
+            textarea.form-control(name="content", placeholder="Escribe el contenido", required)
+        .form-group
+            label(for="author") Autor
+            input.form-control(type="text", name="author", placeholder="Nombre del autor", required)
+        .form-group
+            label(for="category") Categoría
+            input.form-control(type="text", name="category", placeholder="Categoría", required)
+        button.btn.btn-success.mt-3(type="submit") Publicar
+        a.btn.btn-secondary.mt-3(href="/") Cancelar

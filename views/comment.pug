@@ -1,12 +1,11 @@
-extends layout.pug
+extends layout
 
 block content
-    .card.mb-4
-        .card-body
-            h1.text-center Comentar en la publicación #{postId}
-            form(action=`/comment/${postId}`, method="POST")
-                .form-group
-                label(for="comment") Comentario
-                textarea.form-control(name="comment", required)
-                button.btn.mt-3.btn-primary(type="submit") Enviar comentario
-            a.btn.mt-3.btn-secondary(href='/') Volver a la lista de publicaciones
+    .container
+        h1.text-center Comentar en la publicación #{postId}
+        form(action=`/comment/${postId}`, method="POST")
+        .form-group
+            label(for="comment") Comentario
+            textarea.form-control(name="comment", placeholder="Escribe tu comentario aquí", required)
+        button.btn.btn-primary.mt-3(type="submit") Enviar comentario
+        a.btn.btn-secondary.mt-3(href='/') Volver a la lista de publicaciones

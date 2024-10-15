@@ -2,16 +2,9 @@ extends layout
 
 block content
   .container
-    h1.text-center Bienvenido a mi Blog
+    h1.text-center Bienvenido al Blog de ABC Retail
     .d-flex.justify-content-between.mb-4
       a.btn.btn-primary(href="/new") Crear nueva publicación
-      a.btn.btn-secondary(href="/register") Registrarse
-      a.btn.btn-info(href="/login") Iniciar sesión
-
-    //- Formulario de búsqueda
-    form(action="/search", method="GET").d-flex.justify-content-end.mb-4
-      input.form-control(type="search", name="query", placeholder="Buscar publicaciones...", aria-label="Search", required)
-      button.btn.btn-warning.ms-2(type="submit") Buscar
 
     //- Listado de publicaciones
     ul.list-group.mt-4
